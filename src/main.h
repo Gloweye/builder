@@ -24,9 +24,9 @@
 #pragma once
 
 #ifdef BUILD_REL
-    #define MOD_VERSION "Thinker Mod v5.5"
+    #define MOD_VERSION "Builder version_here (Thinker Mod v5.5)"
 #else
-    #define MOD_VERSION "Thinker Mod develop build"
+    #define MOD_VERSION "Builder Mod develop build (Thinker v5.5)"
 #endif
 
 #ifdef BUILD_DEBUG
@@ -222,12 +222,11 @@ struct Config {
     int facility_capture_fix = 1; // unlisted option
     int territory_border_fix = 1;
     int auto_relocate_hq = 1;
-    int rebuild_secret_projects = 0;
-    int steal_energy_rate = 100;
     int simple_hurry_cost = 1;
     int eco_damage_fix = 1;
     int clean_minerals = 16;
     int biology_lab_bonus = 2;
+    int rebuild_secret_projects = 0;
     int spawn_fungal_towers = 1;
     int spawn_spore_launchers = 1;
     int spawn_sealurks = 1;
@@ -339,19 +338,16 @@ struct AIPlans {
     int captured_bases = 0;
 };
 
+#include "engine.h"
 #include "config.h"
 #include "strings.h"
-#include "savegame.h"
-#include "random.h"
 #include "patch.h"
 #include "game.h"
-#include "gameturn.h"
-#include "gamewin.h"
+#include "random.h"
 #include "faction.h"
 #include "base.h"
 #include "basewin.h"
 #include "build.h"
-#include "score.h"
 #include "gui.h"
 #include "gui_dialog.h"
 #include "veh.h"
@@ -370,20 +366,13 @@ struct AIPlans {
 #include "test.h"
 #include "debug.h"
 
-const bool DEF = true;
-const bool ATT = false;
-
 extern FILE* debug_log;
 extern Config conf;
 extern AIPlans plans[MaxPlayerNum];
 extern set_str_t movedlabels;
 extern map_str_t musiclabels;
-extern std::string startup_load_path;
-extern std::vector<std::pair<std::string,std::string>> faction_pool;
-extern std::vector<std::pair<size_t,size_t>> faction_pair;
 
 DLL_EXPORT DWORD ThinkerModule();
-bool FolderExists(const char* path);
 bool FileExists(const char* path);
 void exit_fail(int32_t addr);
 void exit_fail();

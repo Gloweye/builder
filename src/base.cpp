@@ -1376,33 +1376,11 @@ int __cdecl mod_cost_factor(int faction_id, BaseResType type, int base_id) {
         value = 9 * value / 10;
     }
     if (type == RSC_MINERAL) {
-        switch (max(Factions[faction_id].SE_industry_pending, -3)) {
-            case -3:
-                value = (13 * value + 9) / 10;
-                break;
-            case -2:
-                value = (6 * value + 4) / 5;
-                break;
-            case -1:
-                value = (11 * value + 9) / 10;
-                break;
-            case 0:
-                break;
-            case 1:
-                value = (9 * value + 9) / 10;
-                break;
-            case 2:
-                value = (4 * value + 4) / 5;
-                break;
-            case 3:
-                value = (7 * value + 9) / 10;
-                break;
-            case 4:
-                value = (3 * value + 4) / 5;
-                break;
-            default: // +5 Industry or better
-                value = (value + 1) / 2;
+        int industry = Factions[faction_id].SE_industry_pending;
+        if (base_id >= 0) {
+            industry = Bases[base_id].SE_industry(SE_Pending);
         }
+        value = ((10 - clamp(industry, -3, 5)) * value + 9) / 10;
     } else if (type == RSC_NUTRIENT) {
         int growth = Factions[faction_id].SE_growth_pending;
         if (base_id >= 0) {

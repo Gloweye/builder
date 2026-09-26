@@ -291,6 +291,9 @@ struct BASE {
             + 2*has_fac_built(FAC_CHILDREN_CRECHE) // +2 on growth scale
             + 2*golden_age_active(); // +2 on growth scale when flag set
     }
+    int SE_industry(bool pending) {
+        return (pending ? Factions[faction_id].SE_industry_pending : Factions[faction_id].SE_industry);
+    }
     int SE_police(bool pending) {
         return (pending ? Factions[faction_id].SE_police_pending : Factions[faction_id].SE_police)
             + 2*has_fac_built(FAC_BROOD_PIT);
