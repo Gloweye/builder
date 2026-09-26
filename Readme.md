@@ -1,17 +1,17 @@
 
-SMACX Thinker Mod
+## NOTICE: UNDER CONSTRUCTION
+This mod may not currently compile. And even if it does, it shouldn't do anything different from Thinker 5.5.
+
+SMACX Builder Mod
 =================
 
-Thinker is a remake of game engine features for Alpha Centauri: Alien Crossfire.
-By patching the game to use an additional DLL, many new features can be developed in C++.
+Builder aims to make it easier for people to create, distribute and play their own mods, through accessible text-file
+based changes, like the vanilla game allows to a degree with `alphax.txt` and similar files. 
 
-* Visual changes to map rendering and random map generation
-* Additional game mechanics and more detailed config options for the game rules
-* Numerous previously fixed settings in the game engine can be adjusted from the config
-* More options for resolution settings, movie playback and other user interface features
-* Entirely rewritten production and movement AI with minor changes to diplomacy
-* Improved automation routines are also available for player factions
-* Includes [Scient's patches](Details.md)
+* Modifies the game's file reader to allow rerouting to files shadowing base game files in a mod directory. (Not started yet)
+* Allows the editing of Facilities and Secret Projects (In progress)
+
+This mod is based on [Thinker](https://github.com/induktio/thinker), for all the various benefits it offers. 
 
 This mod is tested to work with the [GOG version](https://www.gog.com/game/sid_meiers_alpha_centauri) of Alpha Centauri.
 Note that official Alien Crossfire patch version 2.0 must be installed for the launcher to work with terranx.exe.
@@ -20,26 +20,15 @@ Thinker also includes changes to remove issues on Windows 11 that prevent playin
 
 [See more information](Details.md) about the features and recommended settings.
 It's strongly recommended to read Details.md since many features are added not provided by the original game.
-[Discuss here](https://github.com/induktio/thinker/discussions) about anything related to Thinker development.
-Remember also to star and watch the repository to receive notifications about new updates.
-
 
 Download
 --------
-These links are the only original source to download binary releases. See also the [Changelog](Changelog.md) for useful release notes.
-
-* [Release versions](https://www.dropbox.com/sh/qsps5bhz8v020o9/AAAp6ioWxdo7vnG6Ity5W3o1a?dl=0&lst=)
-* [Develop builds](https://www.dropbox.com/sh/qsps5bhz8v020o9/AADv-0D0-bPq22pgoAIcDRC3a/develop?dl=0&lst=)
-
+Builder isn't playable yet. 
 
 Installation
 ------------
-1. Extract the files to Alpha Centauri game folder. Alphax.txt changes are optional.
-2. Check Changelog.md and Details.md for useful information.
-3. Change configuration from thinker.ini or just use the defaults.
-4. Start the game from thinker.exe.
-5. Press ALT+T to open Thinker's options menu. Other option is to check that mod version/build date is visible in the game version menu (CTRL+F4).
-6. If neither of those options display mod version, Thinker is incorrectly installed and not loaded.
+1. Install Thinker as explained [there](https://github.com/induktio/thinker#Installation).
+2. Unzip the downloaded archive inside your game folder, overwriting `thinker.dll` when prompted.
 
 
 Troubleshooting
@@ -73,15 +62,11 @@ Then after entering the command below DirectPlay should be automatically install
 
 Other mods
 ----------
-* [SMAC-in-SMACX mod](Details.md#smac-in-smacx-mod) can be installed to play a game similar to original SMAC while Thinker is enabled.
-* [Scient's patch](https://github.com/DrazharLn/scient-unofficial-smacx-patch) combines many fixes for the original game.
-* [OpenSMACX](https://github.com/b-casey/OpenSMACX) has been a long-term project to recreate SMACX game engine.
-* Also see [compatibility with other mods such as PRACX](Details.md#compatibility-with-other-mods).
+As a rule, if it works with Thinker, it works with Builder. If it doesn't work with Thinker, it doesn't work
+with Builder. 
 
-
-Compiling
----------
-For information on how to compile Thinker, see [Technical.md](Technical.md).
+Builder-based mods can be installed in the `mods/` subfolder of your game's directory. Edit `mods/active.txt` to contain 
+the directory of the downloaded mod, and it will be active.
 
 
 License
